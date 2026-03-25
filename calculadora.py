@@ -68,55 +68,60 @@ def dividir(a, b):
     return resultado
 
 
-while True:
-    print("\n=== Calculadora Simples ===")
-    print("1 - Soma")
-    print("2 - Subtração")
-    print("3 - Multiplicação")
-    print("4 - Divisão")
-    print("5 - Ver histórico")
-    print("0 - Sair")
+def main():
+    while True:
+        print("\n=== Calculadora Simples ===")
+        print("1 - Soma")
+        print("2 - Subtração")
+        print("3 - Multiplicação")
+        print("4 - Divisão")
+        print("5 - Ver histórico")
+        print("0 - Sair")
 
-    escolha = input("Digite a opção: ")
+        escolha = input("Digite a opção: ")
 
-    if escolha == "0":
-        print("Encerrando calculadora...")
-        break
+        if escolha == "0":
+            print("Encerrando calculadora...")
+            break
 
-    if escolha == "5":
-        print("\n--- Histórico ---")
-        if len(historico) == 0:
-            print("Nenhuma operação realizada.")
-        else:
-            for op in historico:
-                print(op)
-        continue
+        if escolha == "5":
+            print("\n--- Histórico ---")
+            if len(historico) == 0:
+                print("Nenhuma operação realizada.")
+            else:
+                for op in historico:
+                    print(op)
+            continue
 
-    if escolha not in ["1", "2", "3", "4"]:
-        print("Opção inválida!")
-        continue
+        if escolha not in ["1", "2", "3", "4"]:
+            print("Opção inválida!")
+            continue
 
-    try:
-        num1 = float(input("Digite o primeiro número: "))
-        num2 = float(input("Digite o segundo número: "))
-    except ValueError:
-        print("Digite apenas números!")
-        continue
+        try:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+        except ValueError:
+            print("Digite apenas números!")
+            continue
 
-    if escolha == "1":
-        resultado = somar(num1, num2)
-    elif escolha == "2":
-        resultado = subtrair(num1, num2)
-    elif escolha == "3":
-        resultado = multiplicar(num1, num2)
-    elif escolha == "4":
-        resultado = dividir(num1, num2)
+        if escolha == "1":
+            resultado = somar(num1, num2)
+        elif escolha == "2":
+            resultado = subtrair(num1, num2)
+        elif escolha == "3":
+            resultado = multiplicar(num1, num2)
+        elif escolha == "4":
+            resultado = dividir(num1, num2)
 
 
-    try:
-        if resultado == int(resultado):
-            resultado = int(resultado)
-    except:
-        pass
+        try:
+            if resultado == int(resultado):
+                resultado = int(resultado)
+        except:
+            pass
 
-    print(f"Resultado: {resultado}")
+        print(f"Resultado: {resultado}")
+
+
+if __name__ == "__main__":
+    main()
